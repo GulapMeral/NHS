@@ -41,14 +41,17 @@ public class WalesUserNhsCosts_page extends BasePage {
     @FindBy (id="label-no")
     public WebElement no;
 
-    @FindBy (xpath = "//input[@id='yes-universal']")
+    @FindBy (xpath = "(//fieldset[@id='paidUniversalCredit_fieldset']/label)[1]")
     public WebElement yesUniversal;
+
+//    @FindBy(id = "paidUniversalCredit_fieldset")
+//    public WebElement yesUniversal;
 
 
     @FindBy (xpath = "//div[@class='done-panel']")
     public WebElement donePanel;
 
-    @FindBy (id="result-explanation")
+    @FindBy (xpath = "//div[@class='grid-row']//h1")
     public WebElement resultExplanation;
 
 
