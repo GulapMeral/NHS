@@ -36,6 +36,6 @@ public class Hook {
 
         // After every test we gonna close browser
 
-       //Driver.closeDriver();
+       Driver.closeDriver();
     }
 }

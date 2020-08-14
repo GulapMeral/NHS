@@ -66,13 +66,18 @@ public class WalesUserNhsCosts_sd extends WalesUserNhsCosts_page {
         nextButton.click();
     }
 
-    @And("user and user's partner had a combined take-home pay of £{int} or less in your last Universal Credit Period")
-    public void userAndUserSPartnerHadACombinedTakeHomePayOf£OrLessInYourLastUniversalCreditPeriod(int arg0) {
+    @And("user and user's partner had a combined take-home pay of {string} or less in your last Universal Credit Period")
+    public void userAndUserSPartnerHadACombinedTakeHomePayOfOrLessInYourLastUniversalCreditPeriod(String amount) {
+
+       String[] str= questionHeading.getText().split(" ");
+       String actualAmount=str[11];
+       Assert.assertEquals(actualAmount,amount);
         yes.click();
         nextButton.click();
+
     }
 
-    @And("user should recieve this message contains {string}")
+    @Then("user should recieve this message contains {string}")
     public void userRecieveThisMessageContains(String message) {
 
         System.out.println(resultExplanation.getText());
@@ -80,60 +85,69 @@ public class WalesUserNhsCosts_sd extends WalesUserNhsCosts_page {
         String actualResult=resultExplanation.getText().trim();
         Assert.assertTrue(actualResult.contains(message));
 
-
     }
 
-
-    @And("user should NOT live with a partner")
+    @And("user does NOT live with a partner")
     public void userShouldNOTLiveWithAPartner() {
         no.click();
         nextButton.click();
     }
-    @And("user should live with a partner")
-    public void userShouldLiveWithAPartner() {
+    @When("user lives with a partner")
+    public void userLivesWithAPartner() {
         yes.click();
         nextButton.click();
     }
 
-    @And("user should NOT claim any benefits or tax")
+    @And("user does NOT claim any benefits or tax")
     public void userShouldNOTClaimAnyBenefitsOrTax() {
         no.click();
         nextButton.click();
     }
 
-    @And("user should NOT pregnant or have you given birth in the last {int} months")
-    public void userShouldNOTPregnantOrHaveYouGivenBirthInTheLastMonths(int arg0) {
+    @And("user is NOT pregnant or have you given birth in the last {string} months")
+    public void userIsNOTPregnantOrHaveYouGivenBirthInTheLastMonths(String months) {
+        String[] str= questionHeading.getText().split(" ");
+        String actualMonths=str[11];
+        Assert.assertEquals(actualMonths,months);
+
         no.click();
         nextButton.click();
     }
 
-    @And("user should NOT have an injury or illness caused by serving in he armed forces")
+    @And("user does NOT have an injury or illness caused by serving in he armed forces")
     public void userShouldNOTHaveAnInjuryOrIllnessCausedByServingInHeArmedForces() {
         no.click();
         nextButton.click();
     }
 
-    @And("user should NOT have diabetes")
+    @And("user does NOT have diabetes")
     public void userShouldNOTHaveDiabetes() {
         no.click();
         nextButton.click();
     }
 
-    @And("user should NOT have glaucoma")
+    @And("user does NOT have glaucoma")
     public void userShouldNOTHaveGlaucoma() {
         no.click();
         nextButton.click();
     }
 
-    @And("user should NOT live permanently in a care home")
+    @And("user does NOT live permanently in a care home")
     public void userShouldLivePermanentlyInACareHome() {
         no.click();
         nextButton.click();
     }
 
-    @And("user should have more than £{int} in savings, investments or property")
-    public void userShouldHaveMoreThan£InSavingsInvestmentsOrProperty(int arg0) {
+    @And("user does NOT have more than {string} in savings, investments or property")
+    public void userDoesNOTHaveMoreThanInSavingsInvestmentsOrProperty(String amount) {
+        String[] str= questionHeading.getText().split(" ");
+        String actualAmount=str[5];
+        Assert.assertEquals(actualAmount,amount);
+
         no.click();
         nextButton.click();
     }
+
+
+
 }

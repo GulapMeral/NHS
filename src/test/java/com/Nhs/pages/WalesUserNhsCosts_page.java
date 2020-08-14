@@ -54,6 +54,10 @@ public class WalesUserNhsCosts_page extends BasePage {
     @FindBy (xpath = "//div[@class='grid-row']//h1")
     public WebElement resultExplanation;
 
+    @FindBy (id="question-heading")
+    public WebElement questionHeading;
+
+
 
 
 
